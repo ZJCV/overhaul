@@ -30,6 +30,8 @@
 
 According to choose new distillation position and design new teacher transfer and distance function, the OFD (Overhaul of Feature Distillation) realizes the better distillation improvement.
 
+Current project implementation is based on [ clovaai/overhaul-distillation](https://github.com/clovaai/overhaul-distillation).
+
 ## Installation
 
 ```
