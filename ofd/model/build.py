@@ -18,7 +18,7 @@ from .mobilenet_v2 import get_mobilenet_v2
 
 
 def build_model(arch_name, num_classes, preloaded):
-    if 'resnet' in arch_name:
+    if 'resnet' in arch_name or 'resnext' in arch_name:
         model = get_resnet(num_classes=num_classes, arch=arch_name)
     elif 'mobilenet' in arch_name:
         model = get_mobilenet_v2(num_classes=num_classes, arch=arch_name)
