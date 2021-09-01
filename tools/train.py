@@ -13,7 +13,7 @@ import torch
 
 # from zcls.config import cfg
 from zcls.data.build import build_data
-from zcls.engine.trainer import do_train
+# from zcls.engine.trainer import do_train
 # from zcls.model.recognizers.build import build_recognizer
 # from zcls.model.criterions.build import build_criterion
 from zcls.optim.optimizers.build import build_optimizer
@@ -30,6 +30,7 @@ logger = logging.get_logger(__name__)
 from ofd.config import cfg
 from ofd.criterion.build import build_criterion
 from ofd.distill.build import build_distiller
+from ofd.engine.trainer import do_train
 
 
 def train(cfg):
@@ -37,7 +38,7 @@ def train(cfg):
     init_distributed_training(cfg)
     local_rank_id = get_local_rank()
 
-    # Set random seed from config.
+    # Set random seed from configs.
     np.random.seed(cfg.RNG_SEED + 10 * local_rank_id)
     torch.manual_seed(cfg.RNG_SEED + 10 * local_rank_id)
     torch.backends.cudnn.deterministic = True
