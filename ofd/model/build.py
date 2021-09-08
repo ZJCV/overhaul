@@ -13,8 +13,8 @@ from zcls.util import logging
 
 logger = logging.get_logger(__name__)
 
-from .resnet import get_resnet
-from .mobilenet_v2 import get_mobilenet_v2
+from .resnet.resnet import get_resnet
+from .mobilenet.mobilenet_v2 import get_mobilenet_v2
 
 
 def build_model(arch_name, num_classes, preloaded):
