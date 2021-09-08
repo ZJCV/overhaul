@@ -16,8 +16,8 @@ import torchvision.models as models
 
 from zcls.config.key_word import KEY_OUTPUT
 
-from .custom_basicblock import CustomBasicBlock
-from .custom_bottlneck import CustomBottleneck
+from custom_basicblock import CustomBasicBlock
+from custom_bottlneck import CustomBottleneck
 from ofd.config.key_word import KEY_FEAT
 
 
@@ -103,15 +103,9 @@ def get_resnet(num_classes=1000, arch='resnet50'):
 
 if __name__ == '__main__':
     model = get_resnet()
+    print(model.get_distill_channels())
 
-    print(model)
-
-    print(model.model.layer1[-1].bn3)
-    print(model.model.layer2[-1].bn3)
-    print(model.model.layer3[-1].bn3)
-    print(model.model.layer4[-1].bn3)
-
-    print(model.model.layer1[-1].bn3.num_features)
-    print(model.model.layer2[-1].bn3.num_features)
-    print(model.model.layer3[-1].bn3.num_features)
-    print(model.model.layer4[-1].bn3.num_features)
+    data = torch.randn(1, 3, 224, 224)
+    res_dict = model(data)
+    for feats in res_dict[KEY_FEAT]:
+        print(feats.shape)
