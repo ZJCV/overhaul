@@ -23,6 +23,7 @@ def add_custom_config(_C):
     _C.DISTILL.S_PRELOADED = ''
 
     _C.DISTILL.DISTILLER = ''
+    _C.DISTILL.LAMBDA = 1e-4
 
     return _C
 

@@ -24,6 +24,7 @@ class OFDLoss(nn.Module, ABC):
         super(OFDLoss, self).__init__()
         self.task_loss = nn.CrossEntropyLoss(reduction='mean')
         self.distill_loss = nn.MSELoss(reduction='none')
+        self.lam = cfg.DISTILL.LAMBDA
 
     def __call__(self, output_dict, targets):
         assert isinstance(output_dict, dict) and KEY_OUTPUT in output_dict.keys()
@@ -42,5 +43,5 @@ class OFDLoss(nn.Module, ABC):
             tmp_loss = tmp_loss * ((s_feat > t_feat) | (t_feat > 0)).float()
             distill_loss += torch.sum(tmp_loss) / torch.FloatTensor([2 ** (feat_num - i - 1)]).cuda(tmp_loss.device)
 
-        loss = task_loss + distill_loss
+        loss = task_loss + self.lam * distill_loss
         return {KEY_LOSS: loss}
