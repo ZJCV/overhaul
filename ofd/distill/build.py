@@ -12,11 +12,6 @@ from .ofd_distiller import OFDDistiller
 
 
 def build_distiller(cfg, device):
-    t_arch_name = cfg.DISTILL.T_ARCH
-    t_num_classes = cfg.DISTILL.T_NUM_CLASSES
-    t_preloaded = cfg.DISTILL.T_PRELOADED
-    t_net = build_model(t_arch_name, t_num_classes, t_preloaded)
-
     s_arch_name = cfg.DISTILL.S_ARCH
     s_num_classes = cfg.DISTILL.S_NUM_CLASSES
     s_preloaded = cfg.DISTILL.S_PRELOADED
@@ -24,6 +19,11 @@ def build_distiller(cfg, device):
 
     distiller_name = cfg.DISTILL.DISTILLER
     if distiller_name == 'OFD':
+        t_arch_name = cfg.DISTILL.T_ARCH
+        t_num_classes = cfg.DISTILL.T_NUM_CLASSES
+        t_preloaded = cfg.DISTILL.T_PRELOADED
+        t_net = build_model(t_arch_name, t_num_classes, t_preloaded)
+
         model = OFDDistiller(t_net, s_net)
     else:
         # normal training
