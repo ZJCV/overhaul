@@ -16,8 +16,8 @@ import torchvision.models as models
 
 from zcls.config.key_word import KEY_OUTPUT
 
-from custom_basicblock import CustomBasicBlock
-from custom_bottlneck import CustomBottleneck
+from .custom_basicblock import CustomBasicBlock
+from .custom_bottlneck import CustomBottleneck
 from ofd.config.key_word import KEY_FEAT
 
 
