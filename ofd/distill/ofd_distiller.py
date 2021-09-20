@@ -64,9 +64,12 @@ class OFDDistiller(nn.Module):
         assert len(margin_list) == len(s_transform_list)
 
         self.t_net = t_net
-        # 冻结教师网络训练
+        self.t_net.train()
+        # freeze grad update but keep train state
         self.t_net.requires_grad_(False)
+
         self.s_net = s_net
+        self.s_net.train()
 
         self.s_transform_list = nn.ModuleList(s_transform_list)
         for i, margin in enumerate(margin_list):
