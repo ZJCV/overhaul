@@ -3,7 +3,7 @@ NUM_NODES: 1
 RANK_ID: 0
 DIST_BACKEND: "nccl"
 RNG_SEED: 1
-OUTPUT_DIR: 'outputs/mobilenet/mbv2_c100_224_e100_sgd_mslr'
+OUTPUT_DIR: 'outputs/ofd/ofd_r152_pret_r18_c100_224_e100_sgd_mslr'
 TRAIN:
   LOG_STEP: 10
   GRADIENT_ACCUMULATE_STEP: 1
@@ -35,22 +35,22 @@ DATALOADER:
   RANDOM_SAMPLE: True
   PREFETCHER: True
 DISTILL:
-#  T_ARCH: 'resnet50'
-#  T_NUM_CLASSES: 1000
-#  T_PRELOADED: ''
-  S_ARCH: 'mobilenet_v2'
+  T_ARCH: 'resnet152'
+  T_NUM_CLASSES: 100
+  T_PRELOADED: 'outputs/benchmark/r152_c100_224_e100_sgd_mslr/model_0081.pth'
+  S_ARCH: 'resnet18'
   S_NUM_CLASSES: 100
   S_PRELOADED: ''
-  DISTILLER: ''
+  DISTILLER: 'OFD'
 MODEL:
   CRITERION:
-    NAME: 'CrossEntropyLoss'
+    NAME: 'OFDLoss'
 OPTIMIZER:
   NAME: 'SGD'
   LR: 0.05
   MOMENTUM: 0.9
   WEIGHT_DECAY:
-    DECAY: 4e-5
+    DECAY: 1e-4
     NO_BIAS: True
     NO_NORM: True
 LR_SCHEDULER:
