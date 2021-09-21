@@ -14,7 +14,7 @@ import torch.nn as nn
 from zcls.config.key_word import KEY_OUTPUT, KEY_LOSS
 from zcls.model import registry
 
-from ofd.config.key_word import KEY_T_FEAT, KEY_S_FEAT
+from ofd.config.key_word import KEY_T_FEAT, KEY_S_FEAT, KEY_TASK_LOSS, KEY_DISTILL_LOSS
 
 
 @registry.CRITERION.register('OFDLoss')
@@ -44,4 +44,8 @@ class OFDLoss(nn.Module, ABC):
             distill_loss += torch.sum(tmp_loss) / torch.FloatTensor([2 ** (feat_num - i - 1)]).cuda(tmp_loss.device)
 
         loss = task_loss + self.lam * distill_loss
-        return {KEY_LOSS: loss}
+        return {
+            KEY_TASK_LOSS: task_loss,
+            KEY_DISTILL_LOSS: distill_loss,
+            KEY_LOSS: loss,
+        }

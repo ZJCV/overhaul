@@ -10,3 +10,6 @@
 KEY_FEAT = 'FEAT'
 KEY_T_FEAT = 't_feat'
 KEY_S_FEAT = 's_feat'
+
+KEY_TASK_LOSS = 't_loss'
+KEY_DISTILL_LOSS = 'd_loss'
