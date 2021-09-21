@@ -3,7 +3,7 @@ NUM_NODES: 1
 RANK_ID: 0
 DIST_BACKEND: "nccl"
 RNG_SEED: 1
-OUTPUT_DIR: 'outputs/ofd/ofd_r50_pret_r18_c100_224_e100_sgd_mslr'
+OUTPUT_DIR: 'outputs/ofd/ofd_r50_pret_r18_c100_224_e100_sgd_mslr_lam_1e-6'
 TRAIN:
   LOG_STEP: 10
   GRADIENT_ACCUMULATE_STEP: 1
@@ -42,6 +42,7 @@ DISTILL:
   S_NUM_CLASSES: 100
   S_PRELOADED: ''
   DISTILLER: 'OFD'
+  LAMBDA: 1e-6
 MODEL:
   CRITERION:
     NAME: 'OFDLoss'
