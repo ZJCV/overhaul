@@ -37,15 +37,15 @@ class OFDLoss(nn.Module, ABC):
 
         distill_loss = 0
         for i, (t_feat, s_feat) in enumerate(zip(t_feat_list, s_feat_list)):
-            feat_num = len(t_feat)
-
             tmp_loss = self.distill_loss(s_feat, t_feat)
-            tmp_loss = tmp_loss * ((s_feat > t_feat) | (t_feat > 0)).float()
-            distill_loss += torch.sum(tmp_loss) / torch.FloatTensor([2 ** (feat_num - i - 1)]).cuda(tmp_loss.device)
 
-        loss = task_loss + self.lam * distill_loss
+            mask = ((s_feat > t_feat) | (t_feat > 0)).float()
+            tmp_loss = tmp_loss * mask
+            distill_loss += torch.sum(tmp_loss) / torch.sum(mask)
+        distill_loss = distill_loss * self.lam
+
         return {
             KEY_TASK_LOSS: task_loss,
             KEY_DISTILL_LOSS: distill_loss,
-            KEY_LOSS: loss,
+            KEY_LOSS: task_loss + distill_loss,
         }

@@ -7,7 +7,7 @@
 @description: 
 """
 
-from zcls.model  import registry
+from zcls.model import registry
 from zcls.model.criterions.crossentropy_loss import CrossEntropyLoss
 from zcls.model.criterions.label_smoothing_loss import LabelSmoothingLoss
 
