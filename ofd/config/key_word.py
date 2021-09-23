@@ -8,8 +8,8 @@
 """
 
 KEY_FEAT = 'FEAT'
-KEY_T_FEAT = 't_feat'
-KEY_S_FEAT = 's_feat'
+KEY_T_FEAT = 'feat_t'
+KEY_S_FEAT = 'feat_s'
 
-KEY_TASK_LOSS = 't_loss'
-KEY_DISTILL_LOSS = 'd_loss'
+KEY_TASK_LOSS = 'loss_t'
+KEY_DISTILL_LOSS = 'loss_d'

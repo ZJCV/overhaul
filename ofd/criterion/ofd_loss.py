@@ -45,7 +45,7 @@ class OFDLoss(nn.Module, ABC):
         distill_loss = distill_loss * self.lam
 
         return {
+            KEY_LOSS: task_loss + distill_loss,
             KEY_TASK_LOSS: task_loss,
             KEY_DISTILL_LOSS: distill_loss,
-            KEY_LOSS: task_loss + distill_loss,
         }
