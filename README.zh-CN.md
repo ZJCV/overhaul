@@ -42,7 +42,17 @@ $ pip install -r requirements.txt
 
 ## 用法
 
-。。。
+* 训练
+
+```angular2html
+$ CUDA_VISIBLE_DEVICES=0 python tools/train.py -cfg=configs/resnet/ofd_2_0_r50_pret_r18_c100_224_e100_sgd_mslr.yaml
+```
+
+* 测试
+
+```angular2html
+$ CUDA_VISIBLE_DEVICES=0 python tools/test.py -cfg=configs/resnet/ofd_2_0_r50_pret_r18_c100_224_e100_sgd_mslr.yaml
+```
 
 ## 主要维护人员
 
