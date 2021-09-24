@@ -15,16 +15,24 @@ scipy == 1.7.0
 # overhaul/ofd/model/build.py: 10
 # overhaul/ofd/model/custom_basicblock.py: 10,11
 # overhaul/ofd/model/custom_bottlneck.py: 10,11
+# overhaul/ofd/model/mobilenet/mobilenet_v2.py: 10,11,12,13
 # overhaul/ofd/model/mobilenet_v2.py: 10
 # overhaul/ofd/model/resnet.py: 10,12,13,14
+# overhaul/ofd/model/resnet/custom_basicblock.py: 10,11
+# overhaul/ofd/model/resnet/custom_bottlneck.py: 10,11
+# overhaul/ofd/model/resnet/resnet.py: 10,12,13,14
 # overhaul/tools/test.py: 12
 # overhaul/tools/train.py: 12
 torch == 1.9.0+cu111
 
 # overhaul/ofd/model/custom_basicblock.py: 12
 # overhaul/ofd/model/custom_bottlneck.py: 12
+# overhaul/ofd/model/mobilenet/mobilenet_v2.py: 16
 # overhaul/ofd/model/mobilenet_v2.py: 11
 # overhaul/ofd/model/resnet.py: 15
+# overhaul/ofd/model/resnet/custom_basicblock.py: 12
+# overhaul/ofd/model/resnet/custom_bottlneck.py: 12
+# overhaul/ofd/model/resnet/resnet.py: 15
 torchvision == 0.10.0+cu111
 
 # overhaul/ofd/engine/inference.py: 13
@@ -40,8 +48,10 @@ yacs == 0.1.8
 # overhaul/ofd/engine/inference.py: 18
 # overhaul/ofd/engine/trainer.py: 28,31
 # overhaul/ofd/model/build.py: 11,12
+# overhaul/ofd/model/mobilenet/mobilenet_v2.py: 18
 # overhaul/ofd/model/mobilenet_v2.py: 13
 # overhaul/ofd/model/resnet.py: 17
+# overhaul/ofd/model/resnet/resnet.py: 17
 # overhaul/tools/test.py: 23
 # overhaul/tools/train.py: 26
 zcls == 0.11.1
