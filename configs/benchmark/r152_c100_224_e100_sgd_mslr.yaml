@@ -50,7 +50,7 @@ OPTIMIZER:
   LR: 0.05
   MOMENTUM: 0.9
   WEIGHT_DECAY:
-    DECAY: r18
+    DECAY: resnet
     NO_BIAS: True
     NO_NORM: True
 LR_SCHEDULER:
