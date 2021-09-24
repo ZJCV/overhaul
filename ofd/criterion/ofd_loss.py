@@ -35,6 +35,7 @@ class OFDLoss(nn.Module, ABC):
         s_feat_list = output_dict[KEY_S_FEAT]
         assert len(t_feat_list) == len(s_feat_list)
 
+        # different with official implementation
         distill_loss = 0
         for i, (t_feat, s_feat) in enumerate(zip(t_feat_list, s_feat_list)):
             tmp_loss = self.distill_loss(s_feat, t_feat)
