@@ -7,6 +7,10 @@
 @description: 
 """
 
+from torch.nn.parallel import DistributedDataParallel as DDP
+
+import zcls.util.distributed as du
+
 from ..model.build import build_model
 from .ofd_distiller import OFDDistiller
 
@@ -29,4 +33,8 @@ def build_distiller(cfg, device):
         # normal training
         model = s_net
 
-    return model.to(device)
+    model = model.to(device=device)
+    if du.get_world_size() > 1:
+        model = DDP(model, device_ids=[device], output_device=device, find_unused_parameters=True)
+
+    return model
