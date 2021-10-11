@@ -17,7 +17,7 @@
 
 * 解析：[ A Comprehensive Overhaul of Feature Distillation](https://blog.zhujian.life/posts/229eefa5.html)
 
-|     arch    |  top1  |  top5  |     arch_t    |  top1  |  top5  |  dataset | lambda |  top1  |  top5  |
+|     arch_s    |  top1  |  top5  |     arch_t    |  top1  |  top5  |  dataset | lambda |  top1  |  top5  |
 |:-----------:|:------:|:------:|:-------------:|:------:|:------:|:--------:|:------:|:------:|:------:|
 | MobileNetv2 | 79.420 | 95.680 |    ResNet50   | 83.290 | 96.630 | CIFAR100 |  15.0  | 82.440 | 96.540 |
 |   ResNet18  | 80.720 | 95.840 |    ResNet50   | 83.290 | 96.630 | CIFAR100 |   2.0  | 82.470 | 96.360 |
