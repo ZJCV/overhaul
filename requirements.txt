@@ -3,21 +3,18 @@
 # overhaul/ofd/engine/trainer.py: 15
 # overhaul/tools/test.py: 11
 # overhaul/tools/train.py: 11
-numpy == 1.21.0
+numpy == 1.21.2
 
 # overhaul/ofd/distill/ofd_distiller.py: 14
 scipy == 1.7.0
 
 # overhaul/ofd/criterion/ofd_loss.py: 10,13
-# overhaul/ofd/distill/ofd_distiller.py: 11,13
+# overhaul/ofd/distill/build.py: 10
+# overhaul/ofd/distill/ofd_distiller.py: 11,13,15
 # overhaul/ofd/engine/inference.py: 12
 # overhaul/ofd/engine/trainer.py: 13,16,18,19,46
 # overhaul/ofd/model/build.py: 10
-# overhaul/ofd/model/custom_basicblock.py: 10,11
-# overhaul/ofd/model/custom_bottlneck.py: 10,11
 # overhaul/ofd/model/mobilenet/mobilenet_v2.py: 10,11,12,13
-# overhaul/ofd/model/mobilenet_v2.py: 10
-# overhaul/ofd/model/resnet.py: 10,12,13,14
 # overhaul/ofd/model/resnet/custom_basicblock.py: 10,11
 # overhaul/ofd/model/resnet/custom_bottlneck.py: 10,11
 # overhaul/ofd/model/resnet/resnet.py: 10,12,13,14
@@ -25,11 +22,7 @@ scipy == 1.7.0
 # overhaul/tools/train.py: 12
 torch == 1.9.0+cu111
 
-# overhaul/ofd/model/custom_basicblock.py: 12
-# overhaul/ofd/model/custom_bottlneck.py: 12
 # overhaul/ofd/model/mobilenet/mobilenet_v2.py: 16
-# overhaul/ofd/model/mobilenet_v2.py: 11
-# overhaul/ofd/model/resnet.py: 15
 # overhaul/ofd/model/resnet/custom_basicblock.py: 12
 # overhaul/ofd/model/resnet/custom_bottlneck.py: 12
 # overhaul/ofd/model/resnet/resnet.py: 15
@@ -44,14 +37,13 @@ yacs == 0.1.8
 # overhaul/ofd/config/__init__.py: 11
 # overhaul/ofd/criterion/build.py: 10,11,12
 # overhaul/ofd/criterion/ofd_loss.py: 14,15
-# overhaul/ofd/distill/ofd_distiller.py: 15,16
+# overhaul/ofd/distill/build.py: 12
+# overhaul/ofd/distill/ofd_distiller.py: 16,17
 # overhaul/ofd/engine/inference.py: 18
 # overhaul/ofd/engine/trainer.py: 28,31
 # overhaul/ofd/model/build.py: 11,12
 # overhaul/ofd/model/mobilenet/mobilenet_v2.py: 18
-# overhaul/ofd/model/mobilenet_v2.py: 13
-# overhaul/ofd/model/resnet.py: 17
 # overhaul/ofd/model/resnet/resnet.py: 17
 # overhaul/tools/test.py: 23
 # overhaul/tools/train.py: 26
-zcls == 0.11.1
+zcls == 0.15.1
