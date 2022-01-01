@@ -12,6 +12,7 @@ import torch
 
 import torch.nn as nn
 from scipy.stats import norm
+from torch.nn.modules.module import T
 from zcls.model.init_helper import init_weights
 from zcls.config.key_word import KEY_OUTPUT
 
@@ -64,18 +65,14 @@ class OFDDistiller(nn.Module):
         assert len(margin_list) == len(s_transform_list)
 
         self.t_net = t_net
-        self.t_net.train()
-        # freeze grad update but keep train state
-        self.t_net.requires_grad_(False)
-
         self.s_net = s_net
-        self.s_net.train()
 
         self.s_transform_list = nn.ModuleList(s_transform_list)
         for i, margin in enumerate(margin_list):
             self.register_buffer('margin%d' % (i + 1), margin.unsqueeze(1).unsqueeze(2).unsqueeze(0).detach())
 
         self.__init_weights__()
+        self.train()
 
     def __init_weights__(self):
         for student_transform in self.s_transform_list:
@@ -98,3 +95,12 @@ class OFDDistiller(nn.Module):
             KEY_T_FEAT: t_transform_feat_list,
             KEY_S_FEAT: s_transform_feat_list
         }
+
+    def train(self: T, mode: bool = True) -> T:
+        # return super().train(mode)
+        for name, children in self.named_children():
+            children.train()
+            if 't_net' == name:
+                # freeze grad update but keep train state
+                children.requires_grad_(False)
+        return self
