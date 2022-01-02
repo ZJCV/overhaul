@@ -99,7 +99,7 @@ class OFDDistiller(nn.Module):
     def train(self: T, mode: bool = True) -> T:
         # return super().train(mode)
         for name, children in self.named_children():
-            children.train()
+            children.train(mode=mode)
             if 't_net' == name:
                 # freeze grad update but keep train state
                 children.requires_grad_(False)
